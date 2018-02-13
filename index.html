@@ -1,0 +1,72 @@
+
+<html ng-app="KontrolaApp-Reporte ECU">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kontrola GPS | ECU All</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/estiloslogin.css" />
+        <link rel="stylesheet" href="css/estilosall.css" />
+        <link rel="stylesheet" href="css/estilos-googlematerial.css" />
+        <link rel="stylesheet" href="css/estilos-datepicker.css" />
+        <!-- librerias para el medidor -->
+        <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+        <script src="js/public/angular.min.js"></script>
+        <script src="js/public/angular-datepicker.min.js"></script> <!-- para la fecha -->
+        <script src="js/public/angular-animate.min.js"></script>
+        <script src="js/public/angular-aria.min.js"></script>
+        <script src="js/public/angular-messages.min.js"></script>
+        <script src="js/public/angular-material.js"></script>
+        <script src="js/public/angular-resource.min.js"></script>
+        <script src="js/public/angular-route.min.js"></script>
+        <script src="js/public/ui-bootstrap-tpls-2.5.0.min.js"></script>
+        <script src="js/util/utilities.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/directives/maindirectives.js"></script>
+        <script src="js/services/urlservices.js"></script>
+        <script src="js/services/dataservices.js"></script>
+        <script src="js/services/utilservices.js"></script>
+        <script src="js/controllers/maincontrollers.js"></script>
+        <!-- librerias para el medidor -->
+        <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+        <script src="https://www.amcharts.com/lib/3/gauge.js"></script>
+        <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+        <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+
+    </head>
+    
+    <body>
+        <md-toolbar ng-controller="controladorhome" id="barramenujs" class="cmaincolor">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleLeft();">
+                  <md-icon md-svg-icon="./images/icons/menu.svg"></md-icon>
+                </md-button>
+                <h2 flex md-truncate>Sistema de Control Vehicular - Kontrola GPS</h2>
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="logout();">
+                  <md-icon md-svg-icon="./images/icons/logout.svg"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <!-- menu-->
+        <md-sidenav id="mdsidenavjs" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left">
+            <md-content>
+                <md-menu-content>
+                    <md-menu-item>
+                        <md-button href="#!/adminalerts">Alertas</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="#!/adminvehiclefuellevel">Carga</md-button>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <md-button href="#!/viewreport">Reporte</md-button>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-content>
+        </md-sidenav>
+        <div id="reference-dialogs" class="reference-dialogscss" ng-view>
+            
+        </div>
+    
+        
+    </body>
+</html>

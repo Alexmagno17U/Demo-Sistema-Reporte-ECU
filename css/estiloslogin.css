@@ -1,0 +1,20 @@
+
+div.contenedor-imagen
+{
+    width: 90px;
+    margin: 0% 0% 0% 70%;
+}
+div.contenedor-login
+{
+    height  : 50% !important;
+    width   : 30% !important;
+    margin  : auto;
+    position: relative !important;
+    top     : 20% !important;
+    
+    
+}
+div.contenedor-boton 
+{
+    text-align: center;
+}

@@ -1,0 +1,80 @@
+
+html, body
+{
+    background-color    : #ececec;
+}
+md-toolbar.cmaincolor
+{
+    background-color    : #5597d7;
+}
+a.md-button
+{
+    margin   : 0px
+}
+md-sidenav
+{
+    width   : 150px !important;
+}
+div.reference-dialogscss
+{
+    width: 100% !important;
+    height: 90% !important;
+}
+div.container-main
+{
+    width: 90%;
+    margin: auto;
+    
+    text-align: center;
+}
+div.container-main-formfuellevel
+{
+    width: 50%;
+    margin: auto;
+}
+table.table-vehicles tr td
+{
+    vertical-align: middle;
+}
+div.container-main-formfuellevel .textboxCapacitycss
+{
+    text-align: center;
+}
+div.container-planfuellevelcss
+{
+    margin: auto;
+    height: 50%;
+    width: 100%;
+}
+div.container-reportmedidorfuellevelcss1
+{
+    height: 30%;
+    width: 50%;
+    margin: auto;
+    
+}
+div.container-reportmedidorfuellevelcss2
+{
+    height: 30%;
+    width: 50%;
+    margin: auto;
+    
+}
+div.container-reportmedidorfuellevelcss
+{
+    height: 50%;
+    width: 70%;
+    margin: auto;
+    
+}
+div.container-tablereportmedidorfuellevelcss table
+{
+    width: 50%;
+    margin: auto;
+    
+}
+div.container-mapcss
+{
+    height: 100%;
+    width: 100%;
+}

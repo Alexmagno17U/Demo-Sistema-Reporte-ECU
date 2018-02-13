@@ -1,0 +1,38 @@
+
+
+<div class="container-main">
+    
+    <h2>Alertas</h2>
+        
+    <md-content layout-padding>
+        <div layout="row">
+            <div flex="50" class="container-reportmedidorfuellevelcss1" id="container-medidorfuelleveljs1">
+            </div>
+            <div flex="50" class="container-reportmedidorfuellevelcss2" id="container-medidorfuelleveljs2">
+            </div>
+        </div>
+    </md-content>
+    
+    <md-content layout-padding>
+        <div layout="row">
+            <div flex="25" flex-offset="30">
+                <table class="table table-hover table-vehicles">
+                    <thead>
+                        <th>Vehiculo</th>
+                        <th>Mensaje</th>
+                        <th>Cantidad Aproximada</th>
+                        <th>Fecha</th>
+                        <th>Posicion</th>
+                    </thead>
+                    <tr>
+                        <td>{{dataAlert.vehicle}}</td>
+                        <td>{{dataAlert.message}}</td>
+                        <td>{{dataAlert.miliV}}</td>
+                        <td>{{dataAlert.date}}</td>
+                        <td>{{dataAlert.latitude}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </md-content>
+</div>

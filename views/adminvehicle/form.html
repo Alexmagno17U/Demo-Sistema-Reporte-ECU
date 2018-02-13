@@ -1,0 +1,31 @@
+
+<div class="container-main">
+    <br/><br/><br/><br/><br/>
+    <h3>Registro</h3>
+    <div class="container-main-formfuellevel">
+        <md-content layout-padding>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Medida</label>
+                    <md-select ng-model="selectedMeasureId">
+                        <md-option ng-repeat="mea in measures" value="{{mea.measureId}}">
+                            {{mea.description}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex-gt-sm>
+                    <label>Capacidad</label>
+                    <input class="textboxCapacitycss" ng-model="capacity">
+                </md-input-container>
+            </div>
+            <md-button ng-click="saveData()" aria-label="save">
+                <md-icon md-svg-icon="./images/icons/save.svg"></md-icon>
+            </md-button>
+        </md-content>
+        <br/>
+        <md-button href="#!/adminvehiclefuellevel" aria-label="change"> 
+            <md-icon md-svg-icon="./images/icons/back.svg"></md-icon>
+        </md-button>
+    </div>
+</div>

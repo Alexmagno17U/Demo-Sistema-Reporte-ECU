@@ -1,0 +1,31 @@
+
+<div class="container-main">
+    <h2>Carga del dispositivo | Kontrola GPS</h2>
+    <md-content layout-padding>
+        <div layout="row">
+            <div flex="25" flex-offset="40">
+                <table class="table table-hover table-vehicles">
+                    <thead>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                    </thead>
+                    <tr ng-repeat="vehicle in arrayVehicles | startFrom:(currentPage - 1) * pageSize | limitTo : pageSize">
+                        <td>{{vehicle.id}}</td>
+                        <td>{{vehicle.name}}</td>
+                        <td>
+                            <md-button href="#!/adminvehiclefuellevel/load/{{vehicle.id}}" aria-label="save">
+                                <md-icon md-svg-icon="./images/icons/edit.svg"></md-icon>
+                            </md-button>
+                        </td>
+                    </tr>
+                </table>
+                <ul uib-pagination total-items="arrayVehicles.length" class="pagination-sm" ng-model="currentPage" items-per-page="pageSize" max-size="5" class="pagination" boundary-link-numbers="true"></ul>
+            </div>
+        </div>
+        <div layout="row" flex-offset="80">
+            <p>Los elementos resaltados ya han sido cargados</p>
+        </div>
+        
+        
+    </md-content>
+</div>

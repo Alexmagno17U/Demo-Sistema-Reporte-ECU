@@ -1,0 +1,32 @@
+
+<div class="container-main">
+    
+    <h4>Reporte de estado actual de combustible</h4>
+    <!-- PLANO  
+        luego... -->
+    <!-- MEDIDOR -->
+    <br/>
+    <h6>Nivel de combustible</h6>
+    <div class="container-reportmedidorfuellevelcss" id="container-medidorfuelleveljs">
+    </div>
+    <div class="container-tablereportmedidorfuellevelcss">
+        <table class="table table-inverse">
+            <thead>
+                <tr>
+                    <th>Vehiculo</th>
+                    <th>Posicion</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{dataVehicle.name}}</td>
+                    <td><a href="views/reportECU/map.html?lat={{dataVehicle.latitude}}&lng={{dataVehicle.longitude}}&name={{dataVehicle.name}}&date={{dataVehicle.dateTime}}" target="_blank">{{text}}</a></td>
+                    <td>{{dataVehicle.state}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    
+</div>

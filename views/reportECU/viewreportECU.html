@@ -1,0 +1,54 @@
+
+<div class="container-main">
+    <h2>Reporte de consumo | Kontrola GPS</h2>
+    <md-content layout-padding>
+        <div layout="row">
+            <div flex-offset="45">
+                <md-input-container>
+                    <md-switch class="md-primary" name="special" ng-model="showHideSelectVehicles" required>
+                      Todos
+                    </md-switch>
+                </md-input-container>
+                <md-input-container ng-if="!showHideSelectVehicles">
+                    <md-button class="md-raised" ng-click="showVehicles();">Mostrar</md-button>
+                </md-input-container>
+            </div>
+        </div>
+        <!-- <div layout="row">
+            <div flex-offset="35">
+                <md-input-container>
+                <label>Desde:</label>
+                <input datetime-picker ng-model="startDate" />
+                </md-input-container>
+                <md-input-container>
+                    <label>Hasta:</label>
+                    <input datetime-picker ng-model="endDate" />
+                </md-input-container>
+            </div>
+        </div> -->
+        <div layout="row" ng-if="show">
+            <div flex="25" flex-offset="40">
+                <table class="table table-hover">
+                    <thead>
+                    <th></th>
+                    <th>Vehiculo</th>
+                    </thead>
+                    <tr ng-repeat="vehicle in arrayVehicles | startFrom:(currentPage - 1) * pageSize | limitTo : pageSize">
+                        <td><input type="hidden" class="idoculto" value="{{vehicle.id}}" /></td>
+                        <td>{{vehicle.name}}</td>
+                        <td>
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="vehicle.state" onchange="getVehicle(this)"></label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <ul uib-pagination total-items="arrayVehicles.length" class="pagination-sm" ng-model="currentPage" items-per-page="pageSize" max-size="5" class="pagination" boundary-link-numbers="true"></ul>
+            </div>
+        </div>
+        
+        <md-button class="md-raised" ng-click="loadReport()" href="{{url}}">Reporte</md-button>
+        
+        
+    </md-content>
+</div>
