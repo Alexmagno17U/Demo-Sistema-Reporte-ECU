@@ -7,7 +7,7 @@ angular.module("KontrolaApp-Reporte ECU")
         $scope.login = function() {
             var promesa = ResourceUrlLogin.save($scope.user);
             promesa.$promise.then(function(data) {
-                $location.path("/adminvehiclefuellevel");
+                $location.path("/adminalerts");
                 guardarCookieToken(data.auth);
             }, function(err) {
                 console.log(err.data);
@@ -30,9 +30,11 @@ angular.module("KontrolaApp-Reporte ECU")
                 });  
             };
         })
-    .controller("controladoradminalerts", function($scope, $mdSidenav, ResourceJSONAlert, $routeParams, ResourceMedidorFuelLevel) {
+    .controller("controladoradminalerts", function($scope, $mdSidenav, ResourceJSONAlert, $routeParams, 
+        ResourceMedidorFuelLevel, ResourceFuelLevel) {
         showHideMenuBar(true);
         $mdSidenav("left").close();
+        
         
         $scope.id = $routeParams.id;
         if($scope.id !== undefined) {
@@ -55,19 +57,61 @@ angular.module("KontrolaApp-Reporte ECU")
             $scope.pageSize = 5;
             $scope.currentPage = 1;
             $scope.alerts = [];
-            ResourceJSONAlert.getAll().then(function(data) {
-                var dataAlert = {};
-                for(var i=0; i<data.data.length; i++) {
-                    dataAlert.id        = data.data[i].alertId;
-                    dataAlert.vehicle   = data.data[i].vehicle;
-                    dataAlert.date      = data.data[i].date;
-                    $scope.alerts.push(dataAlert);
-                    dataAlert = {};
-                } 
-                console.log($scope.alerts);
-            }, function(err) {
-                console.log(err);
-            });  
+//            ResourceJSONAlert.getAll().then(function(data) {
+//                var dataAlert = {};
+//                for(var i=0; i<data.data.length; i++) {
+//                    dataAlert.id        = data.data[i].alertId;
+//                    dataAlert.vehicle   = data.data[i].vehicle;
+//                    dataAlert.date      = data.data[i].date;
+//                    $scope.alerts.push(dataAlert);
+//                    dataAlert = {};
+//                } 
+//                console.log($scope.alerts);
+//            }, function(err) {
+//                console.log(err);
+//            });
+//            
+//   
+        var range1 = sentLastMonthForReadFuelLevel()[0];
+        var range2 = sentLastMonthForReadFuelLevel()[1];
+        var lastValue = 0;
+        
+        ResourceFuelLevel.resourceFuelLevelByParameter(getCookieToken(), "31", range1, range2)
+        .query().$promise.then(function(data) {
+            var contador = 1;
+            var array = [];
+            
+            for(var i=data.events.length - 1; i>=0; i--) {
+                if(data.events[i].io_ign===true) {
+                    contador++;
+                    array.push(data.events[i].ecu_fuel_level);
+                    if(contador===4) {
+                       break;
+                    };
+                } else {
+                    contador = 1;
+                    array = [];
+                }
+            }
+            console.log(data);
+            lastValue = Math.max.apply(null,array);//ahoar de medianoche hasta la hora actual
+            console.log(lastValue); 
+                
+            ResourceFuelLevel.resourceFuelLevelByParameter(getCookieToken(), "31", range2, undefined)
+            .query().$promise.then(function(data2) {
+                console.log(data2);
+            }, function(err2) { console.log(err2);});
+         
+         
+         
+         
+         
+            //console.log(data);
+        }, function(err) { console.log(err); });
+           
+          
+        
+           
            
         }
         
@@ -259,9 +303,7 @@ angular.module("KontrolaApp-Reporte ECU")
                         lastCorrectValue = data.events[i];
                         break;
                     }
-                }
-                    
-                      
+                }   
 //                var j=0;
 //                for(var i=data.events.length - 1; i>=0; i--) {
 //                    if(data.events[i].ecu_fuel_level === null) {

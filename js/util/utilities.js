@@ -89,3 +89,22 @@ function ordenarAsc(p_array_json, p_key) {
 
 
 
+
+function sentLastMonthForReadFuelLevel() {
+    var date = new Date();
+    var ano = date.getUTCFullYear();
+    var mes = date.getUTCMonth();
+    var day = date.getUTCDate();
+    var arrayRange = [];
+    if(mes===0) {
+        mes = 12;
+        ano = ano - 1;
+        arrayRange.push(ano + "-" + mes + "-" + day);
+        arrayRange.push((ano + 1) + "-" + 1 + "-" + day + "T00:00:00");
+        return arrayRange;
+    }
+    arrayRange.push(ano + "-" + mes + "-" + day);
+    arrayRange.push(ano + "-" + (mes + 1) + "-" + day + "T00:00:00");
+    return arrayRange; 
+}
+

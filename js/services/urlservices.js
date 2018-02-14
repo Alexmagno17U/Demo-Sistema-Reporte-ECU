@@ -30,6 +30,23 @@ angular.module("KontrolaApp-Reporte ECU")
                     }
             });
         };
+        Resource.resourceFuelLevelByParameter = function(token, vid, from, to) {
+            if(to===undefined) {
+                return $resource("https://flota.kontrolagps.com/api/rawdata?vehicles=" + vid + "&from=" + from + "&fields=latitude:@lat,longitude:@lon,ecu_fuel_level,io_ign,&tz=America/Managua/:id", {}, {
+                    query   : {
+                        headers : { "Authenticate" : token },
+                        method  : "GET"
+                    }
+                });
+            } else {
+                return $resource("https://flota.kontrolagps.com/api/rawdata?vehicles=" + vid + "&from=" + from + "&to=" + to + "&fields=latitude:@lat,longitude:@lon,ecu_fuel_level,io_ign,&tz=America/Managua/:id", {}, {
+                    query   : {
+                        headers : { "Authenticate" : token },
+                        method  : "GET"
+                    }
+                });
+            }
+        };
         return Resource;
     })
     

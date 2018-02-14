@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/views/reportECU/map.html</file>
-            <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/js/services/utilservices.js</file>
+            <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/views/admialerts/report.html</file>
+            <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/js/util/utilities.js</file>
             <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/js/services/urlservices.js</file>
             <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/js/controllers/maincontrollers.js</file>
+            <file>file:/C:/xampp/htdocs/Demo-Sistema%20Reporte%20ECU/views/admialerts/view.html</file>
         </group>
     </open-files>
 </project-private>
